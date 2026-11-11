@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class MoveShell : MonoBehaviour
 {
 
-    float speed = 1.0f  ;
+    public float speed = 1.0f  ;
     void Start()
     {
         

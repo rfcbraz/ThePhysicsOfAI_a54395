@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb9c603107c642de9ef047fa6765497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 3
   rotationSpeed: 100
 --- !u!65 &620903249
 BoxCollider:
@@ -657,6 +657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireShell
   bullet: {fileID: 3974420445660118124, guid: 5e17d70116025dd4eb9396763f818c53, type: 3}
   turret: {fileID: 543778597}
+  Enemy: {fileID: 620903246}
 --- !u!1001 &3052892970279238296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -691,7 +692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4044306032032135933, guid: f8df63ccbdfa54d54833de3ea7e2ce5a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.376509
+      value: 7.3356886
       objectReference: {fileID: 0}
     - target: {fileID: 4044306032032135933, guid: f8df63ccbdfa54d54833de3ea7e2ce5a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -699,11 +700,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4044306032032135933, guid: f8df63ccbdfa54d54833de3ea7e2ce5a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.8901765
+      value: 3.877791
       objectReference: {fileID: 0}
     - target: {fileID: 4044306032032135933, guid: f8df63ccbdfa54d54833de3ea7e2ce5a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9985915
+      value: 0.9401728
       objectReference: {fileID: 0}
     - target: {fileID: 4044306032032135933, guid: f8df63ccbdfa54d54833de3ea7e2ce5a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -711,7 +712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4044306032032135933, guid: f8df63ccbdfa54d54833de3ea7e2ce5a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.05305763
+      value: -0.34069803
       objectReference: {fileID: 0}
     - target: {fileID: 4044306032032135933, guid: f8df63ccbdfa54d54833de3ea7e2ce5a, type: 3}
       propertyPath: m_LocalRotation.z
@@ -723,7 +724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4044306032032135933, guid: f8df63ccbdfa54d54833de3ea7e2ce5a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -6.083
+      value: -39.839
       objectReference: {fileID: 0}
     - target: {fileID: 4044306032032135933, guid: f8df63ccbdfa54d54833de3ea7e2ce5a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
