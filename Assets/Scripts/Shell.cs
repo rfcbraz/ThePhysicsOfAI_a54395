@@ -6,6 +6,12 @@ public class Shell : MonoBehaviour
 {
     public GameObject explosion;
 
+    public float speed = 3f;
+    float mass = 10;
+    float force = 1000;
+
+    float acceleration;
+
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "tank")
@@ -25,6 +31,9 @@ public class Shell : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-
+        acceleration = force / mass;
+        speed += acceleration * Time.deltaTime;
+        
+        this.transform.Translate(0, 0, speed * Time.deltaTime);
     }
 }
