@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class AIShell : MonoBehaviour
 { 
 public GameObject explosion;
+Rigidbody rb;
 
 void OnCollisionEnter(Collision col)
 {
@@ -18,12 +19,13 @@ void OnCollisionEnter(Collision col)
 
 void Start()
     {
-        Destroy(this.gameObject, 5f);
+        rb = this.GetComponent<Rigidbody>();
 
     }
 
 void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * 20f);
+        this.transform.forward = rb.linearVelocity;
     }
 }

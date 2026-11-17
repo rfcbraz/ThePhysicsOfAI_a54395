@@ -8,31 +8,28 @@ public GameObject bullet;
 public GameObject turret;
 public GameObject Enemy;
 public Transform turretBase;
-float rotSpeed = 2;
+float rotSpeed = 5;
 float speed = 15;
+float moveSpeed = 3;
 
 
 
     void CreateBullet()
     {
-Instantiate(bullet, turret.transform.position, turret.transform.rotation);
+        GameObject shell = Instantiate(bullet, turret.transform.position, turret.transform.rotation);
+        shell.GetComponent<Rigidbody>().linearVelocity = turretBase.forward * speed;
     }    
     
 
-    void RotateTurret()
+    float? RotateTurret()
     {
         float? angle = CalculateAngle(true);
         if (angle != null)
         {
             turretBase.localEulerAngles = new Vector3(360 - (float)angle, 0, 0);
         }
-        else
-        {
-            turretBase.localEulerAngles = new Vector3(45, 0, 0);
-        }
-        Vector3 direction = (Enemy.transform.position - this.transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        turretBase.rotation = Quaternion.Slerp(turretBase.rotation, lookRotation, Time.deltaTime * rotSpeed);
+        
+        return angle;
     }
 
 
@@ -41,7 +38,7 @@ Instantiate(bullet, turret.transform.position, turret.transform.rotation);
         Vector3 targetDir = Enemy.transform.position - this.transform.position;
         float y = targetDir.y;
         targetDir.y = 0f;
-        float x = targetDir.magnitude;
+        float x = targetDir.magnitude - 10;
         float gravity = 9.8f;
         float sSqr = speed * speed;
         float underTheSqrRoot = (sSqr * sSqr) - gravity * (gravity * x * x + 2 * y * sSqr);
@@ -67,10 +64,14 @@ Instantiate(bullet, turret.transform.position, turret.transform.rotation);
         Vector3 direction = (Enemy.transform.position - this.transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, lookRotation, Time.deltaTime * rotSpeed);
-       RotateTurret();
-        if (Input.GetKeyDown(KeyCode.Space))
+       float? angle =  RotateTurret();
+        if (angle != null)
         {       
             CreateBullet();
+        }
+        else
+        {
+            this.transform.Translate(0, 0, Time.deltaTime * moveSpeed);
         }
     }
 }
